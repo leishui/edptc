@@ -1,4 +1,3 @@
-import py7zr
 import os
 import subprocess
 import pickle
@@ -26,7 +25,7 @@ def unzip(in_file, out_path, pwd,zip):
 
 
 def merge_files(file1, file2, output_file,flag):
-    if(flag):
+    if flag:
         merge_files_win(file1, file2, output_file)
     else:
         merge_files_other(file1, file2, output_file)
@@ -73,7 +72,7 @@ def scan(src,list,check):
         return sum,fileList
 
 def storage(app):
-        if not os.path.exists("params.pkl"):
+        if not app.flag and not os.path.exists("params.pkl"):
             os.mknod("params.pkl")
         params = {"min": app.min.get(), "list": app.list,
                   "check": app.check1Var.get()}
